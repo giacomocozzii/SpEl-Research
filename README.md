@@ -29,6 +29,32 @@ The current local prototype supports PDF/JPG/PNG input, annotated previews, adju
 - The barline detector is still being refined. False positives, missed separators, and variations in scan quality remain research challenges.
 - **Preliminary validation metrics are available** from the two saved training checkpoints. These reflect small development datasets and should not be interpreted as independent evidence of real-world generalization.
 
+## YOLO in action — real prediction examples
+
+The following images show **actual outputs exported from the local detectors** on pages from Brahms's *Clarinet Sonata, Op. 120 No. 2*. Each panel compares the source page with the model's annotated output. Red bounding boxes indicate model predictions, **not manually verified ground truth**; the accompanying numbers are confidence scores.
+
+### 1. Automatic score-region localization
+
+![Before and after score-region detection on a historical Brahms scan](gallery/score-region-historical-page-01.png)
+
+The first model identifies the area occupied by musical notation and can remove substantial outer margins, including on historical scans.
+
+![Before and after score-region detection on a modern Brahms edition](gallery/score-region-modern-page-01.png)
+
+### 2. Barlines in a modern edition
+
+![Before and after barline detection on a modern Brahms clarinet score](gallery/barlines-modern-page-01.png)
+
+The second model detects candidate measure separators across a densely notated page. It works encouragingly well for a small-data beta, but some candidates may be misaligned or correspond to other vertical symbols.
+
+### 3. Barlines in a historical scan
+
+![Before and after barline detection on a historical Brahms score](gallery/barlines-historical-page-01.png)
+
+The historical edition offers a more challenging test of print quality and layout variation. These examples illustrate the workflow, **not a quantitative accuracy benchmark**.
+
+More context, validation curves and limitations are documented in [RESULTS.md](RESULTS.md).
+
 ## Preliminary results
 
 Both detectors were fine-tuned on **small, purpose-built datasets**. They are promising beta experiments, not production-ready systems. In particular, strong validation scores on a limited sample do not establish reliability across unseen editions, scan qualities or orchestral layouts.
@@ -57,11 +83,11 @@ Example input scores used during development include:
 - Mozart — Symphony No. 40, violin and oboe parts
 - Mozart — Piano Concerto No. 21, bassoon part
 
-These are **input examples**, not evidence of successful detection. Annotated model-output comparisons will be added after they are exported and reviewed. Source scans and editions have not been uploaded to this repository.
+The gallery above shows actual predictions on Brahms examples. The remaining works are input material for ongoing development. Source PDF files are not distributed in this repository.
 
 ## Results and limitations
 
-See [Results and evaluation status](RESULTS.md) for checkpoint-derived validation scores, their limitations, and future output galleries.
+See [Results and evaluation status](RESULTS.md) for checkpoint-derived validation scores, their limitations, and the qualitative output gallery.
 
 ## Availability and collaboration
 
