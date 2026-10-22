@@ -8,7 +8,6 @@ SpEl is a broader project devoted to the development of coordinated electronic s
 
 The detectors documented here are **beta research prototypes**, not a finished SpEl product or a production-ready music-recognition system.
 
-![Two-stage processing concept](assets/pipeline.svg)
 
 ## Research objective
 
