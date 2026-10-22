@@ -11,15 +11,30 @@
 | Output export | Annotated previews and coordinate CSV | Implemented locally |
 | Automated checks | Short unit tests of application behavior and PDF rendering | Passed in development |
 
+## Checkpoint-derived validation results
+
+The two supplied `best.pt` checkpoints contain training histories and validation summaries. The values below are read directly from the saved checkpoint metadata, without executing model inference:
+
+| Detector | Precision | Recall | mAP@50 | mAP@50:95 | Selected epoch | Logged epochs |
+|---|---:|---:|---:|---:|---:|---:|
+| Score-region | 0.99724 | 1.00000 | 0.99500 | 0.93178 | 20 | 35 |
+| Barlines | 0.97401 | 0.96296 | 0.97202 | 0.59051 | 13 | 23 |
+
+![Score-region training](assets/score-region-training.svg)
+
+![Barline training](assets/barline-training.svg)
+
+**Interpretation.** The results are encouraging for compact research prototypes trained on limited datasets. They do not demonstrate robustness across unseen scores. The difference between mAP@50 and mAP@50:95 is particularly relevant to barlines, where a small localization error can matter even when a separator is recognized.
+
 ## Not yet published or independently validated
 
-- Held-out precision, recall, F1 and mAP for the barline model
+- Independent held-out test-set precision, recall, F1 and mAP for both models
 - Representative *actual* before/after inference screenshots
 - Page-level and score-level counting accuracy
 - Runtime benchmarks on a reproducible hardware configuration
 - Robustness across different engraving styles, scan resolutions and historical editions
 
-**No numeric detection-performance claim is made in this repository.** In particular, automated application tests do not measure model precision or recall.
+**The numerical scores above are internal validation metrics from training checkpoints**, not independent benchmarks. Automated application tests do not measure detection precision or recall.
 
 ## Example corpus
 
