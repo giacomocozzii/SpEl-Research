@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1100" height="240" viewBox="0 0 1100 240" role="img" aria-label="Schematic: page input, score-region detection, barline detection, coordinates">
+<rect width="1100" height="240" rx="18" fill="#101827"/>
+<g font-family="Arial,sans-serif" fill="#e9f1ff">
+<text x="45" y="42" font-size="21" font-weight="700">SpEl · two-stage research pipeline</text>
+</g>
+<g font-family="Arial,sans-serif" font-size="17" text-anchor="middle">
+<rect x="35" y="80" width="225" height="120" rx="12" fill="#263449" stroke="#6685a7"/><text x="147" y="126" fill="#fff">Input score</text><text x="147" y="154" fill="#a9bdd5" font-size="14">PDF / image</text>
+<rect x="310" y="80" width="225" height="120" rx="12" fill="#263449" stroke="#6685a7"/><text x="422" y="126" fill="#fff">Score-region YOLO</text><text x="422" y="154" fill="#a9bdd5" font-size="14">Locate and crop</text>
+<rect x="585" y="80" width="225" height="120" rx="12" fill="#263449" stroke="#6685a7"/><text x="697" y="126" fill="#fff">Barline YOLO</text><text x="697" y="154" fill="#a9bdd5" font-size="14">Candidate separators</text>
+<rect x="860" y="80" width="205" height="120" rx="12" fill="#263449" stroke="#6685a7"/><text x="962" y="126" fill="#fff">Results</text><text x="962" y="154" fill="#a9bdd5" font-size="14">Overlays + coordinates</text>
+</g>
+<g stroke="#79aeea" stroke-width="3" fill="none"><path d="M260 140 H302 M292 133 l10 7 -10 7"/><path d="M535 140 H577 M567 133 l10 7 -10 7"/><path d="M810 140 H852 M842 133 l10 7 -10 7"/></g>
+<text x="1050" y="224" fill="#7f96b3" text-anchor="end" font-family="Arial,sans-serif" font-size="12">Concept diagram · not a model prediction</text>
+</svg>
