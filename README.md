@@ -27,7 +27,26 @@ The current local prototype supports PDF/JPG/PNG input, annotated previews, adju
 - Two separately fine-tuned detectors, one for the score region and one for barlines.
 - The local prototype has completed end-to-end functional testing.
 - The barline detector is still being refined. False positives, missed separators, and variations in scan quality remain research challenges.
-- **No benchmark metrics are reported here yet.** Functional tests are not a substitute for accuracy measurements on a held-out annotated dataset.
+- **Preliminary validation metrics are available** from the two saved training checkpoints. These reflect small development datasets and should not be interpreted as independent evidence of real-world generalization.
+
+## Preliminary results
+
+Both detectors were fine-tuned on **small, purpose-built datasets**. They are promising beta experiments, not production-ready systems. In particular, strong validation scores on a limited sample do not establish reliability across unseen editions, scan qualities or orchestral layouts.
+
+| Checkpoint | Validation precision | Validation recall | mAP@50 | mAP@50:95 |
+|---|---:|---:|---:|---:|
+| Score-region detector | 99.7% | 100.0% | 99.5% | 93.2% |
+| Barline detector | 97.4% | 96.3% | 97.2% | 59.1% |
+
+*Figures were extracted from the `train_metrics` stored in the two supplied Ultralytics checkpoints. These are internal validation figures, not independent test-set scores. The different mAP@50:95 values highlight the difficulty of precise barline localization.*
+
+### Training history
+
+![Score-region training curves](assets/score-region-training.svg)
+
+![Barline training curves](assets/barline-training.svg)
+
+The plots show **validation mAP recorded at each epoch**, including epochs other than the selected best checkpoint. The score-region model's selected best epoch is 20 of 35; the barline model's selected best epoch is 13 of 23.
 
 ## Sample material
 
@@ -42,7 +61,7 @@ These are **input examples**, not evidence of successful detection. Annotated mo
 
 ## Results and limitations
 
-See [Results and evaluation status](RESULTS.md) for a transparent distinction between verified functionality, pending accuracy evaluation, and future output galleries.
+See [Results and evaluation status](RESULTS.md) for checkpoint-derived validation scores, their limitations, and future output galleries.
 
 ## Availability and collaboration
 
