@@ -33,25 +33,27 @@ The current local prototype supports PDF/JPG/PNG input, annotated previews, adju
 
 The following images show **actual outputs exported from the local detectors** on pages from Brahms's *Clarinet Sonata, Op. 120 No. 2*. Each panel compares the source page with the model's annotated output. Red bounding boxes indicate model predictions, **not manually verified ground truth**; the accompanying numbers are confidence scores.
 
-### 1. Automatic score-region localization
-
-![Before and after score-region detection on a historical Brahms scan](gallery/score-region-historical-page-01.png)
-
-The first model identifies the area occupied by musical notation and can remove substantial outer margins, including on historical scans.
+### 1. Score-region detection — modern edition
 
 ![Before and after score-region detection on a modern Brahms edition](gallery/score-region-modern-page-01.png)
 
-### 2. Barlines in a modern edition
+### 2. Score-region detection — historical edition
+
+![Before and after score-region detection on a historical Brahms scan](gallery/score-region-historical-page-01.png)
+
+The score-region detector locates musical notation on both clean editions and historical scans, allowing external margins to be cropped.
+
+### 3. Barline detection — modern edition
 
 ![Before and after barline detection on a modern Brahms clarinet score](gallery/barlines-modern-page-01.png)
 
-The second model detects candidate measure separators across a densely notated page. It works encouragingly well for a small-data beta, but some candidates may be misaligned or correspond to other vertical symbols.
+The second model identifies candidate measure separators. Some predicted boxes can be misplaced or correspond to other vertical symbols.
 
-### 3. Barlines in a historical scan
+### 4. Barline detection — historical edition
 
 ![Before and after barline detection on a historical Brahms score](gallery/barlines-historical-page-01.png)
 
-The historical edition offers a more challenging test of print quality and layout variation. These examples illustrate the workflow, **not a quantitative accuracy benchmark**.
+Historical print quality and layout variation make barline detection more challenging. These images show qualitative model outputs, not a quantitative accuracy benchmark.
 
 More context, validation curves and limitations are documented in [RESULTS.md](RESULTS.md).
 
